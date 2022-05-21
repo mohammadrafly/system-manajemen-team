@@ -40,6 +40,7 @@ $routes->post('register/proced', 'Auth::RegisterProced');
 //grouping so that the routes doesnt messed up
 $routes->group('dashboard', ['filter' => 'authGuard'], function ($routes) {
     $routes->get('/', 'Dashboard::index');
+    $routes->get('strukur-ssb', 'Dashboard::strukturSSBsiswa');
     $routes->group('strukturssb', ['filter' => 'authGuardRole'], function ($routes) {
         $routes->get('/', 'Dashboard::strukturSSB');
         $routes->get('add', 'Dashboard::add');
@@ -96,6 +97,7 @@ $routes->group('dashboard', ['filter' => 'authGuard'], function ($routes) {
     $routes->group('tagihan', function ($routes) {
         $routes->get('saya/(:num)', 'Tagihan::index/$1');
     });
+    
 });
 //logout
 $routes->get('logout', 'Auth::Logout');

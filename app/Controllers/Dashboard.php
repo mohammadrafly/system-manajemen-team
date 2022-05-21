@@ -30,6 +30,17 @@ class Dashboard extends BaseController
         return view('struktur/index', $data);
     }
 
+    public function strukturSSBsiswa()
+    {
+        $model = new StrukturSSB();
+        $data = [
+            'content'  => $model->get()->getResult(),
+            'pages' => 'Struktur SSB'
+        ];
+        //dd($data);
+        return view('struktur/siswa', $data);
+    }
+
     public function add()
     {
         $data = [

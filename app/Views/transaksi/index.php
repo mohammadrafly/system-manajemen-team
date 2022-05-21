@@ -39,9 +39,9 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama</th>
-                                <th>transaksi</th>
+                                <th>Nominal</th>
                                 <th>Status Transaksi</th>
-                                <th>Created At</th>
+                                <th>Dibuat Pada</th>
                                 <th>Opsi</th>
                             </tr>
                         </thead>
@@ -55,9 +55,9 @@
                                 <td><?php echo $row['nama']; ?></td>
                                 <td><?php echo number_to_currency($row['tagihan'], 'IDR'); ?></td>
                                 <td>
-                                    <?php if($row['status_transaksi'] === 'UNPAID'): ?>
+                                    <?php if($row['status_transaksi'] === 'BELUM BAYAR'): ?>
                                       <span class="badge bg-danger text-white"><?= $row['status_transaksi'] ?></span>
-                                    <?php elseif($row['status_transaksi'] === 'PAID'): ?>
+                                    <?php elseif($row['status_transaksi'] === 'SUDAH BAYAR'): ?>
                                       <span class="badge bg-success text-white"><?= $row['status_transaksi'] ?></span>
                                     <?php endif ?>
                                 </td>

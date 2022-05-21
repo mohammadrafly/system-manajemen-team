@@ -136,7 +136,7 @@
               <i class="menu-icon mdi mdi-timetable"></i>
               <span class="menu-title">Jadwal Latihan</span>
             </a>
-            <a class="nav-link" href="<?= base_url('dashboard/struktur-ssb') ?>">
+            <a class="nav-link" href="<?= base_url('Dashboard/strukturSSBsiswa') ?>">
               <i class="menu-icon mdi mdi-account-network"></i>
               <span class="menu-title">Struktur SSB</span>
             </a>

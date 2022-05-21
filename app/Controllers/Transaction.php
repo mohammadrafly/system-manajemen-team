@@ -38,7 +38,7 @@ class Transaction extends BaseController
         $data = [
             'id_user' => $this->request->getVar('id_user'),
             'tagihan' => $this->request->getVar('tagihan'),
-            'status_transaksi' => 'UNPAID',
+            'status_transaksi' => 'BELUM BAYAR',
         ];
         $model->insert($data);
         session()->setFlashdata('success', 'Berhasil menambahkan tagihan!');

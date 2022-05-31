@@ -23,11 +23,6 @@
                     <?php endif; ?>
                     </li>
                   </ul>
-                  <div>
-                    <div class="btn-wrapper">
-                      <a href="<?= base_url('dashboard/user/add'); ?>" class="btn btn-otline-dark align-items-center"><i class="icon-plus"></i> Add Pengguna</a>
-                    </div>
-                  </div>
                 </div>
               </div>
               <div class="col-lg-12 grid-margin stretch-card">
@@ -43,7 +38,6 @@
                                 <th>Nomor HP</th>
                                 <th>Role</th>
                                 <th>Joined</th>
-                                <th>Option</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -58,10 +52,6 @@
                                 <td><?php echo $row['nomor_hp']; ?></td>
                                 <td><?php echo $row['role']; ?></td>
                                 <td><?= $row['created_at']; ?></td>
-                                <td>
-                                    <a href="<?= base_url('dashboard/user/edit/'.$row['id']); ?>" class="btn-sm btn-warning text-white"><i class="mdi mdi-table-edit"></i></a>
-                                    <a href="<?= base_url('dashboard/user/delete/'.$row['id']); ?>" class="btn-sm btn-danger text-white"><i class="mdi mdi-delete-forever"></i></a>
-                                </td>
                             </tr>
                             <?php endforeach; ?>
                             <?php endif; ?>

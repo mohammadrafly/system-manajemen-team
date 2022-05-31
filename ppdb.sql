@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 19, 2022 at 11:01 AM
+-- Generation Time: May 23, 2022 at 09:03 AM
 -- Server version: 5.7.33
--- PHP Version: 7.4.19
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -102,7 +101,7 @@ CREATE TABLE `transaction` (
   `id_transaksi` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `tagihan` varchar(255) NOT NULL,
-  `status_transaksi` enum('PAID','UNPAID') NOT NULL,
+  `status_transaksi` enum('SUDAH BAYAR','BELUM BAYAR') NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -112,8 +111,7 @@ CREATE TABLE `transaction` (
 --
 
 INSERT INTO `transaction` (`id_transaksi`, `id_user`, `tagihan`, `status_transaksi`, `created_at`, `updated_at`) VALUES
-(5, 17, '10000', 'PAID', '2022-05-19 10:20:59', '2022-05-19 10:20:59'),
-(6, 21, '10000', 'UNPAID', '2022-05-19 14:32:11', '2022-05-19 14:32:11');
+(8, 10, '100000', 'BELUM BAYAR', '2022-05-21 08:47:41', '2022-05-21 08:47:41');
 
 -- --------------------------------------------------------
 
@@ -146,11 +144,12 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `role`, `nama`, `nomor_hp`, `ttl`, `gender`, `foto_diri`, `foto_akte`, `riwayat_penyakit`, `posisi_pemain`, `status`, `note`, `created_at`, `updated_at`) VALUES
 (10, 'users', '$2y$10$AXf6EQeasIITrUTFqpEmkeBTJ8q93h/CRss6tEnbv./0bTM2oGlEu', 'admin', 'Muhammad Silicon Valley', '081237127312', NULL, 'laki-laki', '1652832653_125f8c9f70279f4c0713.png', NULL, NULL, '', 'pending', '', '2022-05-18 00:50:23', '2022-05-18 00:50:23'),
-(17, 'ahmad', '$2y$10$o2hGJ2mEF5y0RxwSEJR14eiTPkX7R2I1gBMkwLxu8sOgTOi4GBG4q', 'siswa', 'Ahmad Abdul Kryptonian', '0819078713087', NULL, 'laki-laki', NULL, NULL, NULL, '', 'pending', '', '2022-05-18 03:11:02', '2022-05-18 03:11:02'),
+(17, 'ahmad', '$2y$10$o2hGJ2mEF5y0RxwSEJR14eiTPkX7R2I1gBMkwLxu8sOgTOi4GBG4q', 'unset', 'Ahmad Abdul Kryptonian', '0819078713087', NULL, 'laki-laki', NULL, NULL, NULL, '', 'ditolak', 'maaf anda kurang cukup umur', '2022-05-18 03:11:02', '2022-05-18 03:11:02'),
 (19, 'admin', '$2y$10$qLYRkwXGj5hmqATUdjouzeA2W3kusreSwHZ6SkM91sVJVQRAeoFqq', 'admin', 'admin', '089786765463', NULL, 'laki-laki', '1652834208_0fbaeadc2485e6a7b8ca.png', NULL, NULL, NULL, NULL, '', '2022-05-18 07:36:26', '2022-05-18 07:36:26'),
 (20, 'test', '$2y$10$IjylU6hvDnrNYdVVDv6ukugzCJI/53z3yOMDxwSMbaiggvBR08so6', 'siswa', 'test', '123123123123', NULL, 'laki-laki', '1652931681_dc44657d91b5a127765c.webp', NULL, NULL, NULL, NULL, '', '2022-05-19 10:25:44', '2022-05-19 10:25:44'),
-(21, 'harrison', '$2y$10$oKRZMMgrvMOqm9X7oYKauOD0Rt9/r1cGK4K7Djlcvattf/I8HA5mW', 'siswa', 'Harrison Gerard', '089765674632', '07/24/2002', 'laki-laki', '1652940836_0d74fbbef8553ef21bbf.png', '1652940836_7b0211a4e862d4ad1eb1.png', '1652940836_d80c197285b496241f75.png', 'Back', 'diterima', 'Selamat anda telah diterima di Persikota FC', '2022-05-19 11:31:35', '2022-05-19 11:31:35'),
-(22, 'test2', '$2y$10$QrMhCir0lFNa0KCBtAUNB.b1qpAP/wDNE2xFbB4O6bSuKeUBG.seC', 'unset', 'test', '123123123123', '05/25/2022', 'laki-laki', '1652938700_a600b6db427533fb5d22.png', '1652938700_20e56333639379e33bcc.png', '1652938700_3445934d05d2ee1a4412.png', 'Midfielder', 'ditolak', 'Foto tidak jelas', '2022-05-19 12:37:47', '2022-05-19 12:37:47');
+(21, 'harrison', '$2y$10$oKRZMMgrvMOqm9X7oYKauOD0Rt9/r1cGK4K7Djlcvattf/I8HA5mW', 'siswa', 'Harrison Gerard', '089765674632', '07/24/2002', 'laki-laki', '1652959180_4661cb9150085bf5c22e.png', '1652940836_7b0211a4e862d4ad1eb1.png', '1652940836_d80c197285b496241f75.png', 'Back', 'diterima', 'Selamat anda telah diterima di Persikota FC', '2022-05-19 11:31:35', '2022-05-19 11:31:35'),
+(22, 'test2', '$2y$10$QrMhCir0lFNa0KCBtAUNB.b1qpAP/wDNE2xFbB4O6bSuKeUBG.seC', 'unset', 'test', '123123123123', '05/25/2022', 'laki-laki', '1652938700_a600b6db427533fb5d22.png', '1652938700_20e56333639379e33bcc.png', '1652938700_3445934d05d2ee1a4412.png', 'Midfielder', 'ditolak', 'Foto tidak jelas', '2022-05-19 12:37:47', '2022-05-19 12:37:47'),
+(23, 'test3', '$2y$10$fmii1RGMk6srnkeL6vNV7ebJTMgsUuwfi4/YXNIiui/pBUDjnL/3O', 'unset', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'pending', '', '2022-05-19 18:13:32', '2022-05-19 18:13:32');
 
 --
 -- Indexes for dumped tables
@@ -212,13 +211,13 @@ ALTER TABLE `strukturssb`
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

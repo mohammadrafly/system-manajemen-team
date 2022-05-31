@@ -81,7 +81,7 @@ class Dashboard extends BaseController
 
     public function delete($id = null)
     {
-        $model = new SturkturSSB();
+        $model = new StrukturSSB();
         $model->where('id', $id)->delete($id);
         session()->setFlashData('success', 'Struktur berhasil dihapus!');
         return $this->response->redirect(site_url('dashboard/strukturssb'));

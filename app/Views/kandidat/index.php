@@ -23,11 +23,6 @@
                     <?php endif; ?>
                     </li>
                   </ul>
-                  <div>
-                    <div class="btn-wrapper">
-                      <a href="<?= base_url('dashboard/user/add'); ?>" class="btn btn-otline-dark align-items-center"><i class="icon-plus"></i> Add Pengguna</a>
-                    </div>
-                  </div>
                 </div>
               </div>
               <div class="col-lg-12 grid-margin stretch-card">
